@@ -54,7 +54,7 @@ const Homepage=() => {
       <div className="col-lg-3 col-md-5 col-7">
         <p className="text-black mb-0">
           <i className="bi-clock site-header-icon me-2" />
-          Announcement: This is Saturday
+          Announcement: This is Saturdays
         </p>
       </div>
       <div className="col-lg-3 col-md-3 col-12 ms-auto">
