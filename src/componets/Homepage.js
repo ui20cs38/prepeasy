@@ -33,13 +33,11 @@ const Homepage = () => {
   };
   return (
     <>
-      {/* hello */}
-
       <header className="site-header">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-3 col-md-5 col-7">
-              <p className="text-black mb-0">
+              <p className="text-black mb-0" style={{ width: "300px" }}>
                 <i className="bi-clock site-header-icon me-2" />
                 Announcement: This is Saturdays
               </p>
@@ -92,7 +90,11 @@ const Homepage = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div
+            className="collapse navbar-collapse"
+            id="navbarNav"
+            style={{ "margin-right": "16px" }}
+          >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <a className="nav-link click-scroll" href="#section_1">
@@ -139,7 +141,6 @@ const Homepage = () => {
           </div>
         </div>
       </nav>
-
       <main>
         <section className="hero">
           <div className="container-fluid h-100">
@@ -152,73 +153,61 @@ const Homepage = () => {
                 <div className="carousel-inner">
                   <div className="carousel-item active">
                     <div className="container position-relative h-100">
-                      <div className="carousel-caption d-flex flex-column justify-content-center">
+                      <div
+                        className="carousel-caption d-flex flex-column justify-content-center"
+                        style={{ "margin-left": "58px" }}
+                      >
                         {/* //search BOx */}
+                        <div
+                          style={{
+                            "justify-content": " center",
+                            "align-items": "center",
+                            display: "flex",
+                            "margin-left": "155px",
+                            "margin-bottom": "0px",
+                            "padding-top": "40px",
+                          }}
+                        >
+                          <div className="wrap">
+                            <div className="search search-input">
+                              <a href="" target="_blank" hidden></a>
+                              <input
+                                type="text"
+                                className="searchTerm"
+                                value={value}
+                                onChange={onChange}
+                                placeholder="  What are you looking for?"
+                              />
+                              <button type="submit" className="searchButton">
+                                Search
+                              </button>
+                            </div>
+                            <div className="dropdown ">
+                              {data
+                                .filter((item) => {
+                                  const searchTerm = value.toLowerCase();
+                                  const fullName = item.full_name.toLowerCase();
 
-                        <div className="wrap">
-                          <div className="search search-input">
-                            <a href="" target="_blank" hidden></a>
-                            <input
-                              type="text"
-                              className="searchTerm"
-                              value={value}
-                              onChange={onChange}
-                              placeholder="  What are you looking for?"
-                            />
-                            <button type="submit" className="searchButton">
-                              Search
-                            </button>
-                          </div>
-                          <div className="dropdown ">
-                            {data
-                              .filter((item) => {
-                                const searchTerm = value.toLowerCase();
-                                const fullName = item.full_name.toLowerCase();
-
-                                return (
-                                  searchTerm &&
-                                  fullName.startsWith(searchTerm) &&
-                                  fullName !== searchTerm
-                                );
-                              })
-                              .slice(0, 8)
-                              .map((item) => (
-                                <div
-                                  onClick={() => onSearch(item.full_name)}
-                                  className="dropdown-rowh my-2 "
-                                  key={item.full_name}
-                                >
-                                  {item.full_name}
-                                </div>
-                              ))}
-                          </div>
-                        </div>
-
-                        {/* Add Button */}
-
-                        <>
-                          <link
-                            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                            rel="stylesheet"
-                          />
-                          <div className="floating-container">
-                            <div className="floating-button">+</div>
-                            <div className="element-container">
-                              <span className="float-element tooltip-left">
-                                <i className="material-icons">smart_display</i>
-                              </span>
-
-                              <span className="float-element">
-                                <i className="material-icons">assignment_add</i>
-                              </span>
-                              <span className="float-element">
-                                <i className="material-icons">edit_square</i>
-                              </span>
+                                  return (
+                                    searchTerm &&
+                                    fullName.startsWith(searchTerm) &&
+                                    fullName !== searchTerm
+                                  );
+                                })
+                                .slice(0, 8)
+                                .map((item) => (
+                                  <div
+                                    onClick={() => onSearch(item.full_name)}
+                                    className="dropdown-rowh my-2 "
+                                    key={item.full_name}
+                                  >
+                                    {item.full_name}
+                                  </div>
+                                ))}
                             </div>
                           </div>
-                        </>
-
-                        <h1>
+                        </div>
+                        <h1 style={{ "margin-top": "0px" }}>
                           THE{" "}
                           <span className="text-warning">SUGGETION MASTER</span>{" "}
                           for you
@@ -238,11 +227,48 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="about section-padding" id="section_2">
+        <>
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
+          <div
+            className="floating-container"
+            style={{ "margin-right": "0px", "z-index": "1" }}
+          >
+            <div className="floating-button" style={{ "margin-right": "15px" }}>
+              +
+            </div>
+            <div className="element-container">
+              <span className="float-element tooltip-left">
+                <i className="material-icons">smart_display</i>
+              </span>
+
+              <span className="float-element">
+                <i className="material-icons">assignment_add</i>
+              </span>
+              <span className="float-element">
+                <i className="material-icons">edit_square</i>
+              </span>
+            </div>
+          </div>
+        </>
+        <section
+          className="about section-padding"
+          style={{ "padding-bottom": "100px" }}
+          id="section_2"
+        >
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 col-12 mb-5 mb-lg-0">
-                <div className="about-image-wrap h-100">
+              <div className="col-lg-6 col-12 mb-5 mb-lg-0 mt-8">
+                <div
+                  className="about-image-wrap"
+                  style={{
+                    height: "775px",
+                    "margin-top": "45px",
+                    "margin-bottom": "20px",
+                  }}
+                >
                   <img src={i12} className="img-fluid about-image" alt="img" />
                   <div className="about-image-info">
                     <h4 className="text-white">Harsh Mavani, Founder</h4>
@@ -253,12 +279,19 @@ const Homepage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6 col-12 d-flex flex-column">
+              <div
+                className="col-lg-6 col-12 d-flex flex-column mt-8"
+                style={{ "margin-top": "45px" }}
+              >
                 <div className="about-thumb bg-white shadow-lg">
                   <div className="about-info">
-                    <small className="small-title">About</small>
+                    <small>
+                      <h2>About</h2>
+                    </small>
                     <h2 className="mb-3">Suggestion Master</h2>
-                    <h5 className="mb-3">Helping students since 2009</h5>
+                    <h5 className="mb-3" style={{ "padding-top": "10px" }}>
+                      Helping students since 2020
+                    </h5>
                     <p>
                       Prep Easy is easy tool for students to find relevent study
                       material on topic in three varous forms video, pdf and
@@ -271,30 +304,37 @@ const Homepage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="row h-100">
+                <div className="row h-10">
                   <div className="col-lg-6 col-6">
-                    <div className="about-thumb d-flex flex-column justify-content-center bg-danger mb-lg-0 h-100">
+                    <div className="about-thumb d-flex flex-column justify-content-center bg-danger mb-lg-0 h-10">
                       <div className="about-info">
-                        <h5 className="text-white mb-4">
+                        <h5 className="text-white m-8">
                           We're growing free educational platfrom
                         </h5>
-                        <a
+                        <button
                           className="custom-btn btn custom-bg-primary"
                           href="#section_3"
+                          style={{
+                            width: "fit-content",
+                            height: "fit-content",
+                            "margin-left": "35px",
+                            "margin-bottom": "15px",
+                            "margin-top": "35px",
+                          }}
                         >
                           Join us
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-6">
-                    <div className="about-thumb d-flex flex-column justify-content-center bg-warning mb-lg-0 h-100">
+                    <div className="about-thumb d-flex flex-column justify-content-center bg-warning mb-lg-0 h-10">
                       <div className="about-info">
                         <h5 className="text-white mb-4">
                           Is it complicated to use Prep Easy?
                         </h5>
                         <p className="text-white mb-0">
-                          Just enter your keyword and get best containt.
+                          Just enter your keyword & get best containt.
                         </p>
                       </div>
                     </div>
@@ -304,21 +344,23 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="services section-padding" id="section_3">
+        <section
+          className="services section-padding"
+          style={{ padding: "100px" }}
+          id="section_3"
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-10 col-12 text-center mx-auto mb-5">
-                <small className="small-title">
-                  Services <strong className="text-warning">03/05</strong>
-                </small>
                 <h2>How can we help you?</h2>
               </div>
               <div className="col-lg-6 col-12">
                 <nav>
                   <div
-                    className="nav nav-tabs flex-column align-items-baseline"
+                    className="nav nav-tabs flex-column"
                     id="nav-tab"
                     role="tablist"
+                    style={{ margin: "0px" }}
                   >
                     <button
                       className="nav-link active"
@@ -329,12 +371,12 @@ const Homepage = () => {
                       role="tab"
                       aria-controls="nav-business"
                       aria-selected="true"
+                      style={{
+                        "margin-left": "25px",
+                        "padding-bottom": "48px",
+                      }}
                     >
-                      <h3>Business Consulting</h3>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut dolore
-                      </span>
+                      Business Consulting
                     </button>
                     <button
                       className="nav-link"
@@ -345,12 +387,9 @@ const Homepage = () => {
                       role="tab"
                       aria-controls="nav-strategy"
                       aria-selected="false"
+                      style={{ margin: "25px", "padding-bottom": "48px" }}
                     >
-                      <h3>Strategy Planning</h3>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut dolore
-                      </span>
+                      Strategy Planning
                     </button>
                     <button
                       className="nav-link"
@@ -361,12 +400,9 @@ const Homepage = () => {
                       role="tab"
                       aria-controls="nav-video"
                       aria-selected="false"
+                      style={{ margin: "25px", "padding-bottom": "48px" }}
                     >
-                      <h3>Video Content</h3>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut dolore
-                      </span>
+                      Video Content
                     </button>
                   </div>
                 </nav>
@@ -434,13 +470,14 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="projects section-padding pb-0" id="section_4">
+        <section
+          className="projects section-padding pb-0"
+          style={{ padding: "100px" }}
+          id="section_4"
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-10 col-12 text-center mx-auto mb-5">
-                <small className="small-title">
-                  Projects <strong className="text-warning">04/05</strong>
-                </small>
                 <h2>Brands we've crafted so far</h2>
               </div>
               <div className="col-lg-4 col-12">
@@ -585,16 +622,16 @@ const Homepage = () => {
           <div className="contact-container-wrap">
             <div className="container">
               <div className="row">
-                <div className="col-lg-6 col-12">
+                <div
+                  className="col-lg-6 col-12"
+                  style={{ "padding-top": "35px" }}
+                >
                   <form
                     className="custom-form contact-form"
                     action=""
                     method="post"
                     role="form"
                   >
-                    <small className="small-title">
-                      Contact <strong className="text-white">05/05</strong>
-                    </small>
                     <h2 className="mb-5">Say Hi to us</h2>
                     <div className="row">
                       <div className="col-lg-6 col-md-6 col-12">
@@ -627,7 +664,11 @@ const Homepage = () => {
                           placeholder="Message"
                           defaultValue={""}
                         />
-                        <button type="submit" className="form-control">
+                        <button
+                          type="submit"
+                          className="form-control"
+                          style={{ "padding-bottom": "36px" }}
+                        >
                           Submit
                         </button>
                       </div>
@@ -635,11 +676,14 @@ const Homepage = () => {
                   </form>
                 </div>
                 <div className="col-lg-6 col-12">
-                  <div className="contact-thumb">
+                  <div
+                    className="contact-thumb"
+                    style={{ "padding-top": "135px" }}
+                  >
                     <div className="contact-info bg-white shadow-lg">
-                      <h4 className="mb-4">
+                      <h5 className="mb-4">
                         1340 Atwater St, Detroit, MI 48207
-                      </h4>
+                      </h5>
                       <h4 className="mb-2">
                         <a href="tel: 240-480-9600">
                           <i className="bi-telephone contact-icon me-2" />
@@ -711,9 +755,7 @@ const Homepage = () => {
           </div>
         </div>
       </footer>
-      {/* JAVASCRIPT FILES */}
     </>
   );
 };
-
 export default Homepage;
