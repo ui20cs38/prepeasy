@@ -4,6 +4,9 @@ import Homepage from "./componets/Homepage";
 import Profile from "./componets/Profile";
 import Login from "./Login";
 import List from "./componets/list/List";
+import Documnet from "./componets/Documnet";
+import Utube from "./componets/Utube";
+import Dropzone from "./componets/Dropzone";
 
 
 export default function App() {
@@ -14,7 +17,9 @@ export default function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/list" element={<List />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
-
+        <Route path="/documents" element={<Documnet />}></Route>
+        <Route path="/utube" element={<Utube />}></Route>
+        <Route path="/dropzone" element={<Dropzone />}></Route>
       </Routes>
     </BrowserRouter>
   );
