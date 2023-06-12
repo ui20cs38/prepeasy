@@ -70,7 +70,6 @@ app.post("/register", async(req, res) =>{
     await person.save()
     console.log("saved")
     return res.status(200).json({status:"ok"})
-    
 
 })
 
