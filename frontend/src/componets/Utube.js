@@ -98,6 +98,9 @@ const Utube = () => {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                 nulla pariatur.
               </h3>
             </div>
@@ -124,7 +127,7 @@ const Utube = () => {
             </div>
           </div>
         </div>
-        <div style={{ flex: "1", "padding-top": "3.5rem" }}>
+        <div style={{ flex: "1", "padding-top": "3rem" }}>
           <div>
             <div
               style={{
@@ -141,34 +144,36 @@ const Utube = () => {
                   display: "flex",
                   backgroundColor: "#F97316",
                   border: "2px solid #6B7280",
-                  borderRadius: "0.5rem",
-                  gap: "1rem",
+                  borderRadius: "0.5rem",              
                   height: "fit-content",
                   padding: "2rem",
-                  marginTop: "3rem",
+                  marginTop: "2em",
                 }}
               >
-                <section style={{ marginTop: "0.5rem" }}>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
+                <section>
+                  <div style={{ display: "flex", flexDirection: "column", marginTop: "-45px" }}>
                     <form action="">
-                      <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
                         <label
                           style={{
                             color: "#000000",
                             fontWeight: "500",
-                            paddingBottom: "0.5rem",
-                            fontSize: "1rem",
+                            marginLeft: "0px",
+                            marginBottom: "-15px",
+                            fontSize: "16px",
                           }}
                         >
                           Add Title of your content :
                         </label>
                         <input onChange={handelTitle}
                           style={{
-                            border: "1px solid #1F2937",
-                            borderRadius: "0.75rem",
-                            fontSize: "1rem",
+                            border: "2px solid #1F2937",
+                            "border-radius": "0.5rem",
+                            fontSize: "16px",
                             padding: "0.5rem",
+                            height: "2.5rem",
                             width: "24rem",
+                            marginBottom: "-35px"
                           }}
                           type="text"
                           id="title"
@@ -178,10 +183,11 @@ const Utube = () => {
 
                         <label
                           style={{
-                            paddingTop: "0.5rem",
+                            color: "#000000",
                             fontWeight: "500",
-                            paddingBottom: "0.5rem",
-                            fontSize: "1rem",
+                            marginLeft: "0px",
+                            marginBottom: "5px",
+                            fontSize: "16px",
                           }}
                         >
                           Description :
@@ -189,24 +195,54 @@ const Utube = () => {
                         <textarea onChange={handelDiscription}
                           id="desc"
                           name="desc"
-                          rows={6}
+                          rows={5}
                           cols={30}
                           style={{
                             border: "1px solid #1F2937",
-                            borderRadius: "0.75rem",
-                            fontSize: "1rem",
+                            borderRadius: "0.5rem",
+                            fontSize: "16px",
                             padding: "0.5rem",
                             width: "24rem",
+                            marginBottom: "-35px"
                           }}
                           placeholder="Add Description"
                         />
 
                         <label
                           style={{
-                            paddingTop: "0.5rem",
+                            color: "#000000",
                             fontWeight: "500",
-                            paddingBottom: "0.5rem",
-                            fontSize: "1rem",
+                            marginLeft: "0px",
+                            marginBottom: "5px",
+                            fontSize: "16px",
+                          }}
+                        >
+                          Add Tags :
+                        </label>
+                        <textarea
+                          id="tags"
+                          name="tags"
+                          rows={2}
+                          cols={30}
+                          style={{
+                            border: "1px solid #1F2937",
+                            borderRadius: "0.75rem",
+                            fontSize: "16px",
+                            padding: "0.5rem",
+                            width: "24rem",
+                          }}
+                          placeholder="Add Tags"
+                        />
+
+                        <label
+                          style={{
+                            color: "#000000",
+                            fontWeight: "500",
+                            marginLeft: "0px",
+                            marginBottom: "5px",
+                            fontSize: "16px",
+                            marginTop: "25px"
+                            
                           }}
                         >
                           Add YouTube Link :
@@ -214,12 +250,12 @@ const Utube = () => {
                         <textarea onChange={handelYtlink}
                           id="tags"
                           name="tags"
-                          rows={3}
+                          rows={1}
                           cols={30}
                           style={{
                             border: "1px solid #1F2937",
                             borderRadius: "0.75rem",
-                            fontSize: "1rem",
+                            fontSize: "16px",
                             padding: "0.5rem",
                             width: "24rem",
                           }}
@@ -242,13 +278,13 @@ const Utube = () => {
                           onClick={videoUpload}
                           style={{
                             backgroundColor: "yellow",
-                            fontSize: "1rem",
-                            padding: "0.5rem",
+                            fontSize: "16px",
                             borderRadius: "0.375rem",
                             marginTop: "2rem",
                             cursor: "pointer",
+                            height: "fit-content",
                             width: "24rem",
-                            
+                            padding: "10px"
                           }}
                         />
                       </div>
