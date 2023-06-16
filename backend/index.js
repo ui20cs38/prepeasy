@@ -26,6 +26,7 @@ const content = mongoose.model("ContentDev")
 
 
 app.use(express.json());
+
 app.post("/register", async(req, res) =>{
     let {name, email, password} = req.body;
     console.log(req.body)
@@ -73,12 +74,6 @@ app.post("/register", async(req, res) =>{
 
 })
 
-
-
-
-
-
-
 app.post("/login", async(req, res) =>{
     console.log(req.body)
     try {
@@ -112,13 +107,6 @@ app.post("/login", async(req, res) =>{
     }
 })
 
-
-
-
-
-
-
-
 app.post("/ytvideo", async(req, res) =>{
     console.log(req.body)
     let {owner,
@@ -149,8 +137,30 @@ app.post("/ytvideo", async(req, res) =>{
        
 })
 
+app.get("/ytcontent", async(req,res)=>{
+    console.log("/ytcontent called finally...");
+    try {
+		const search = req.query.search || "";
+	
+		const SearchedYTContent = await content.find({
+			isYT: true,
+			$or: [
+                { title: { $regex: search, $options: "i" } },
+                { description: { $regex: search, $options: "i" } }
+            ]
 
-
+		});
+		console.log("from /ytcontent:- ",SearchedYTContent);
+        console.log("okay cool...");
+		const response = {
+			SearchedYTContent
+		};
+		res.status(200).json(response);
+	} catch (error) {
+		console.log("Error occured during getting SearchedYTContent: ",error);
+		res.status(500).json({ error: true, message: "allContent.js-> Internal Server Error" });
+	}
+});
 
 
 
