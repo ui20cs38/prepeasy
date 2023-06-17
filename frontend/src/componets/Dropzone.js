@@ -186,7 +186,6 @@ const DropZone = () => {
                           placeholder="Add Description"
                         />
 
-<<<<<<< Updated upstream
                         <label
                           style={{
                             color: "#000000",
@@ -212,7 +211,6 @@ const DropZone = () => {
                           }}
                           placeholder="Add Tags"
                         />
-=======
                         
                         {/*<label className="pt-2 font-medium pb-2 text-base">
                         Add YouTube link :
@@ -224,7 +222,6 @@ const DropZone = () => {
                         className="border border-slate-950 rounded-xl text-base p-2 w-96"
                         placeholder="Add YouTube link"
                       />*/}
->>>>>>> Stashed changes
                       </div>
 
                       <div
