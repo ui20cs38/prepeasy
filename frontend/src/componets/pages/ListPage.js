@@ -58,7 +58,7 @@ function a11yProps(index) {
 
  function YTpanel(search, setSearch) {
    const [allContent, setAllContent] = useState([])
-   const [likes, setLikes] = useState()
+   const [likes, setLikes] = useState();
   useEffect(() => {
     const getYtContent = async () => {
       try {
@@ -137,33 +137,70 @@ function a11yProps(index) {
         </div>
   )
 }
- function PDFpanel() {
-   const [allContent, setAllContent] = useState([])
+ function PDFpanel(search, setSearch) {
+   const [pdfContent, setPdfContent] = useState([])
    useEffect(() => {
-     const fetchAllContent = async ()=>{
+     const fetchPdfContent = async ()=>{
        try{
-           // const response = await axios.get("http://localhost:3001/recipes");          
-           setAllContent(pdfContent);
+        const url = `${base_url}?search=${search}`;
+        const { data } = await axios.get(url);
+        console.log("from useEffect<-PDFpanel.js:-",data);
+        setPdfContent(data.SearchedPDFContent);
        }catch(err){
            console.error(err);
        }
    };
-   fetchAllContent();
-   }, [allContent])
+   fetchPdfContent();
+   }, [pdfContent])
 
    return(
 
 
   <div style={{justifyItems:"center"}}>
             <ul style={{marginLeft:"23%", width:"850px", display: "flex", flexWrap: "wrap"}}>
-                {allContent.map((contnent) => (
-                    <li className='main-card' key={contnent._id}>
+                {pdfContent && pdfContent.map((content) => (
+                    <li className='main-card' key={content._id}>
+                      <Col>
+                      <Card style={{width: "377px", height:"430px"}}>                          
+
+
+                      <Card.Body>
+                        <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
+                          <div style={{ marginLeft: 'auto', paddingRight:"15px"}}>
+                            <p style={{ fontSize: "13px", fontWeight: "500", color: "rgba(119, 119, 119, 0.7)", textAlign: "left" }}>
+                              post by: {content.owner.length>16?content.owner.slice(0,15)+"...":content.owner.slice(0,15)}
+                            </p>
+                            <h2>DOWNLOAD BUTTON HERE</h2>
+
+                          </div>
+                      </Card.Body>
+
+
+                      <Card.Footer>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconButton aria-label="up vote">
+                              <ThumbUpSharpIcon />
+                            </IconButton>
+                            <IconButton aria-label="down vote button">
+                              <ThumbDownAltSharpIcon />
+                            </IconButton>
+                          </div>
+                          <div style={{ }}>
+                            <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
+                              likes: {content.like}
+                            </p>
+                          </div>
+                        </Box>
+                      </Card.Footer>
+
                         <div >
-                            <h2>{contnent.videoTitle}</h2>
+                            <h2>DOWNLOAD BUTTON HERE</h2>
+                            {/* <h2>{contnent.videoTitle}</h2> */}
                         </div>
 
                         <div >
-                          <p className='instructions'>{contnent.description}</p>
+                          <p className='instructions'>{content.description}</p>
                         </div>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <div style={{backgroundColor:"#0000002b", borderTopLeftRadius: "10px 10px", borderTopRightRadius: "10px 10px", borderBottomLeftRadius: "10px 10px", borderBottomRightRadius: "10px 10px"}}>
@@ -176,11 +213,13 @@ function a11yProps(index) {
                           </div>
                           <div style={{ marginLeft: 'auto', paddingRight:"12px"}}>
                             <p style={{ fontSize: "15px", fontWeight: "500", color: "rgba(119, 119, 119, 0.7)", textAlign: "right" }}>
-                              post by: {contnent.postBy}
+                              post by: {content.postBy}
                             </p>
                           </div>
                         </Box>
-                        <p style={{ margin:"1px 0 5px 3px",fontSize: "15px", fontWeight: "500", color:"rgba(119, 119, 119, 0.7)" }}>liiikes:{contnent.like}{/* D:{contnent.downVotes}*/}</p>
+                        <p style={{ margin:"1px 0 5px 3px",fontSize: "15px", fontWeight: "500", color:"rgba(119, 119, 119, 0.7)" }}>liiikes:{content.like}{/* D:{contnent.downVotes}*/}</p>
+                        </Card>
+                      </Col>
                     </li>
                 ))}
             </ul>

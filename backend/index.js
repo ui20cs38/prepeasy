@@ -162,6 +162,31 @@ app.get("/ytcontent", async(req,res)=>{
 	}
 });
 
+app.get("/pdfcontent", async (req, res) => {
+    console.log("/pdfcontent called finally...");
+    try {
+		const search = req.query.search || "";
+	
+		const SearchedPDFContent = await content.find({
+			isPDF: true,
+			$or: [
+                { title: { $regex: search, $options: "i" } },
+                { description: { $regex: search, $options: "i" } }
+            ]
+
+		});
+		console.log("from /pdfcontent:- ",SearchedPDFContent);
+        console.log("okay cool...");
+		const response = {
+			SearchedPDFContent
+		};
+		res.status(200).json(response);
+	} catch (error) {
+		console.log("Error occured during getting SearchedPDFContent: ",error);
+		res.status(500).json({ error: true, message: "allContent.js-> Internal Server Error" });
+	}
+})
+
 
 
 
