@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import ThumbUpSharpIcon from '@mui/icons-material/ThumbUpSharp';
 import ThumbDownAltSharpIcon from '@mui/icons-material/ThumbDownAltSharp';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 
 import staticContent from '../../config/ytContentDummy.js';
 // import pdfContent from "../../config/pdfContent.js";
@@ -21,11 +22,10 @@ import Card from 'react-bootstrap/Card';
 import { SearchBar } from '../search/SearchBar.jsx';
 import { SearchResultsList } from '../search/SearchResultsList.jsx';
 
-const base_url = "http://localhost:5000/ytcontent"
 
 function TabPanel(props) {
   const { children, value, index } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -42,7 +42,6 @@ function TabPanel(props) {
   );
 }
 
-
 TabPanel.propTypes = {
   children: node,
   index: number.isRequired,
@@ -56,7 +55,10 @@ function a11yProps(index) {
   };
 }
 
- function YTpanel(search, setSearch) {
+
+  const base_url = "http://localhost:5000/ytcontent";
+
+  function YTpanel(search, setSearch) {
    const [allContent, setAllContent] = useState([])
    const [likes, setLikes] = useState();
   useEffect(() => {
@@ -95,7 +97,9 @@ function a11yProps(index) {
                 {allContent.map((content) => (
                     <li className='main-card' key={content._id} style={{listStyleType:"none"}}>
                       <Col  md={12}>
-                        <Card style={{width: "377px", height:"430px"}}>                          
+                        <Link to={`/detailedcontent/${content._id}`}>
+                        
+                        <Card style={{width: "377px", height:"430px"}} >                          
                           <Card.Body>
                           {/* <Card.Body style={{height:"350px"}}> */}
                             <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
@@ -129,6 +133,8 @@ function a11yProps(index) {
                               </Box>
                             </Card.Footer>
                         </Card>
+
+                        </Link>
                       </Col>
                     </li>
                 ))}
