@@ -185,7 +185,7 @@ app.get("/ytcontent", async(req,res)=>{
             ]
 
 		});
-		console.log("from /ytcontent:- ",SearchedYTContent);
+		// console.log("from /ytcontent:- ",SearchedYTContent);
         console.log("okay cool...");
 		const response = {
 			SearchedYTContent
@@ -222,7 +222,19 @@ app.get("/pdfcontent", async (req, res) => {
 	}
 })
 
-
+app.get("/detailedcontent", async (req,res) => {
+    console.log("/detailedcontent called finally...");
+    try {
+        console.log("req.query from /detailedcontent/:id::::",req.query);
+        const contentId = req.query.id;    
+        const SearchedDetailedContent = await content.find({_id: contentId});
+        console.log("SearchedDetailedContent====",SearchedDetailedContent);
+        res.status(200).json(SearchedDetailedContent);
+    } catch (error) {
+        console.log("Error occured from /detailedcontent: ",error);
+		res.status(500).json({ error: true, message: "/detailedcontent-> Internal Server Error" });
+    }
+})
 
 
 

@@ -12,8 +12,25 @@ export const SearchBar = ({ setResults }) => {
         console.log("value:::",value);
         const url = `${base_url}?search=${value}`;
         let { data } = await axios.get(url);
-        console.log("from fetchData<-SearchBar.jsx:-",data);
         const results = data.SearchedYTContent;       
+        console.log("results from fetchData<-SearchBar.jsx:-",results);
+
+        function dynamicsort(property) {
+          
+          return function (a, b){
+              // a should come before b in the sorted order
+              if(a[property] > b[property]){
+                      return -1 ;
+              // a should come after b in the sorted order
+              }else if(a[property] < b[property]){
+                      return 1 ;
+              // a and b are the same
+              }else{
+                      return 0 ;
+              }
+          }
+        }   
+        console.log("sorted results",results.sort(dynamicsort("like")));
         setResults(results);
             
       } catch (error) {
