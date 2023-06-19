@@ -97,9 +97,9 @@ function a11yProps(index) {
                 {allContent.map((content) => (
                     <li className='main-card' key={content._id} style={{listStyleType:"none"}}>
                       <Col  md={12}>
-                        <Link to={`/detailedcontent/${content._id}`}>
                         
                         <Card style={{width: "377px", height:"430px"}} >                          
+                        <Link to={`/detailedcontent/${content._id}`}>
                           <Card.Body>
                           {/* <Card.Body style={{height:"350px"}}> */}
                             <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
@@ -114,27 +114,28 @@ function a11yProps(index) {
                             <Card.Text style={{marginTop:"10px"}}>
                               {content.description.length>65?content.description.slice(0,65)+"...":content.description}
                             </Card.Text>  
-                          </Card.Body>              
-                            <Card.Footer>
-                              <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                  <IconButton aria-label="up vote">
-                                    <ThumbUpSharpIcon />
-                                  </IconButton>
-                                  <IconButton aria-label="down vote button">
-                                    <ThumbDownAltSharpIcon />
-                                  </IconButton>
-                                </div>
-                                <div style={{ }}>
-                                  <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
-                                    likes: {content.like}
-                                  </p>
-                                </div>
-                              </Box>
-                            </Card.Footer>
+                          </Card.Body>    
+                        </Link>
+
+                          <Card.Footer>
+                            <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
+                              <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <IconButton aria-label="up vote">
+                                  <ThumbUpSharpIcon />
+                                </IconButton>
+                                <IconButton aria-label="down vote button">
+                                  <ThumbDownAltSharpIcon />
+                                </IconButton>
+                              </div>
+                              <div style={{ }}>
+                                <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
+                                  likes: {content.like}
+                                </p>
+                              </div>
+                            </Box>
+                          </Card.Footer>
                         </Card>
 
-                        </Link>
                       </Col>
                     </li>
                 ))}
