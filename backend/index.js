@@ -87,7 +87,7 @@ app.post("/login", async(req, res) =>{
         const userlogin = await user.findOne({email:lemail})
         console.log(userlogin)
         if(!userlogin){
-            return res.status(300).json({status:"ok"})
+            return res.status(300).json({status:"Not Found"})
         }
         const ismatch = await bcrypt.compare(lpassword, userlogin.password)
 
@@ -106,6 +106,41 @@ app.post("/login", async(req, res) =>{
         console.log(error)
     }
 })
+
+
+
+
+app.get('/dashboard/:id', async(req, res) => {
+    try {
+
+        const email = req.params.id
+        const userlogin = await user.findOne({email:email})
+        res.json(userlogin)
+
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+    // const collection = db.collection('user'); // Replace 'users' with your collection name
+    // const userId = req.params.id; // Get the user ID from the request parameters
+  
+    // collection.findOne({ email: userId }, (err, user) => {
+    //   if (err) {
+    //     console.error('Error fetching user data:', err);
+    //     res.status(500).json({ error: 'Failed to fetch user data' });
+    //   } else {
+    //     res.json(user);
+    //   }
+    // });
+
+  });
+  
+
+
+
+
+
 
 app.post("/ytvideo", async(req, res) =>{
     console.log(req.body)

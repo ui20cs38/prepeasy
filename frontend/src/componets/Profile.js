@@ -1,11 +1,37 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
+
 import './profile.css'
 
 
 function Profile() {
+
+  const userEmail = "mavaniharsh104@gmail.com";
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/dashboard/${userEmail}`)
+      .then((response) => response.json())
+      .then((data) => setUser(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, []);
+
+  // useEffect(async() => {
+  //   const respose = await fetch(`http://localhost:5000/dashboard/${userEmail}`)
+  //   setUser(respose);
+  // }, []);
+
+  if(!user){
+    return(
+      <>
+      loding..
+      </>
+    )
+  }
+
   return (
     <>
     <>
+  {console.log(user)}
   <div className="ui-theme-settings">
     <button
       type="button"
@@ -560,7 +586,7 @@ function Profile() {
                 </div>
                 <div className="widget-content-right">
                   <div className="widget-numbers text-white">
-                    <span>1896</span>
+                    <span>{user.contentLikes-user.contentDislikes}</span>
                   </div>
                 </div>
               </div>
