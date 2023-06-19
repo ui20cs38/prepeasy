@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-// import Col from 'react-bootstrap/Col';
-// import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { IconButton } from '@mui/material';
 import Box from '@mui/material/Box';
 
 import ThumbUpSharpIcon from '@mui/icons-material/ThumbUpSharp';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownAltSharpIcon from '@mui/icons-material/ThumbDownAltSharp';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
 
 
 const DetailedContent = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [feedback, setFeedback] = useState();
+  const [like, setLike] = useState(false)
+  const [dislike, setDisLike] = useState(false)
+  // let like = false;
+  // let dislike = false;
 
   const  thumbnailEmbed = (url) => {
     const regex = /youtu.be\/(\w+)/;
@@ -45,8 +49,37 @@ const DetailedContent = () => {
     return <div>Loading...</div>;
   }
 
+  const handleUpVote = async () => {
+    if(!like){
+      setLike(true);
+      setDisLike(false);
+      try {
+        const response = await axios.put(`http://localhost:5000/detailedcontent/like/${data._id}`, {
+          action: 'upvote',
+        });
+        setData({ ...data, like: response.data.like });
+      } catch (error) {
+        console.error("Error upvoting:", error);
+      }
+    }
+  };
+
+  const handleDownVote = async () => {
+    if(!dislike){
+      setDisLike(true);
+      setLike(false);
+      try {
+        const response = await axios.put(`http://localhost:5000/detailedcontent/like/${data._id}`, {
+          action: 'downvote',
+        });
+        setData({ ...data, like: response.data.like });
+      } catch (error) {
+        console.error("Error downvoting:", error);
+      }
+    }
+  };
+
   return (
-    // <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
     <div style={{width: "100%", display:"flex", justifyContent:"center"}}>
      <Card style={{ width: '65rem', marginTop:"1.5rem", marginBottom:"3rem" }}>
       <Card.Body>
@@ -59,12 +92,55 @@ const DetailedContent = () => {
       <Card.Footer>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton aria-label="up vote">
-              <ThumbUpSharpIcon />
-            </IconButton>
-            <IconButton aria-label="down vote button">
-              <ThumbDownAltSharpIcon />
-            </IconButton>
+            {!like&&!dislike?
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <IconButton aria-label="up vote" onClick={handleUpVote}>
+                <ThumbUpOffAltIcon /> 
+              </IconButton>
+              <IconButton aria-label="down vote button" onClick={handleDownVote}>
+                <ThumbDownOffAltIcon />
+              </IconButton>
+            </div>:
+              like&&!dislike? 
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <IconButton aria-label="up vote" onClick={handleUpVote}>
+                    <ThumbUpSharpIcon /> 
+                  </IconButton>
+                  <IconButton aria-label="down vote button" onClick={handleDownVote}>
+                    <ThumbDownOffAltIcon />
+                  </IconButton>
+                </div> : 
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <IconButton aria-label="up vote" onClick={handleUpVote}>
+                    <ThumbUpOffAltIcon />
+                  </IconButton>
+                  <IconButton aria-label="down vote button" onClick={handleDownVote}>
+                    <ThumbDownAltSharpIcon />
+                  </IconButton>
+                </div>
+            }
+              {/* {like&&!dislike? 
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <IconButton aria-label="up vote" onClick={handleUpVote}>
+                    <ThumbUpSharpIcon /> 
+                  </IconButton>
+                  <IconButton aria-label="down vote button" onClick={handleDownVote}>
+                    <ThumbDownOffAltIcon />
+                  </IconButton>
+                </div> : 
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <IconButton aria-label="up vote" onClick={handleUpVote}>
+                    <ThumbUpOffAltIcon />
+                  </IconButton>
+                  <IconButton aria-label="down vote button" onClick={handleDownVote}>
+                    <ThumbDownAltSharpIcon />
+                  </IconButton>
+                </div>} */}
+              {/* <ThumbUpOffAltIcon /> */}
+              {/* <ThumbUpSharpIcon /> */}
+              {/* {dislike&&!like? <ThumbDownAltSharpIcon /> : <ThumbDownOffAltIcon />} */}
+              {/* <ThumbDownOffAltIcon /> */}
+              {/* <ThumbDownAltSharpIcon /> */}
           </div>
           <div style={{ }}>
             <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
@@ -80,23 +156,3 @@ const DetailedContent = () => {
 };
 
 export default DetailedContent;
-
-
-// import axios from 'axios';
-// import React from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const DetailedContent = async () => {
-//     const { id } = useParams();
-//     console.log("id from DetailedContent.jsx is::", id);
-//     const base_url = "http://localhost:5000/detailedcontent";
-//     const url = `${base_url}?id=${id}`;
-//     const { data } = await axios.get(url);
-//     // console.log("fetched data for DETAILED-CONTENT:",data);
-//     console.log("fetched DETAILED-CONTENT:",data[0].title);
-//   return (
-//     <h1>ok:{data[0].title}</h1>
-//   )
-// }
-
-// export default DetailedContent

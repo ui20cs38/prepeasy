@@ -201,6 +201,40 @@ app.get("/detailedcontent", async (req,res) => {
     }
 })
 
+// Assuming you have the necessary dependencies and setup for your Express.js backend
+
+app.put('/detailedcontent/like/:id', async (req, res) => {
+    try {
+      const postId = req.params.id;
+      const action = req.body.action;
+  
+      // Fetch the post from the database
+      const post = await content.findById(postId);
+  
+      if (!post) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+  
+      // Update the like count based on the action
+      if (action === 'upvote') {
+        post.like += 1;
+      } else if (action === 'downvote') {
+        post.like -= 1;
+      } else {
+        return res.status(400).json({ error: 'Invalid action' });
+      }
+  
+      // Save the updated post in the database
+      await post.save();
+  
+      res.json({ like: post.like });
+    } catch (error) {
+      console.error('Error updating like count:', error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+  
+
 
 
 
