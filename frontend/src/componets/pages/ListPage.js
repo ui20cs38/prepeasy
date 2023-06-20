@@ -91,58 +91,55 @@ function a11yProps(index) {
   }
 
   return(
-  <div style={{justifyItems:"center", border:"0px solid", margin: "auto", width: "60%", padding: "10px"}}>
-            <ul style={{ border:"0px solid black", display: "flex", flexWrap: "wrap"}}>            
-              <Row xs={1} md={2} className="g-4">
-                {allContent.map((content) => (
-                    <li className='main-card' key={content._id} style={{listStyleType:"none"}}>
-                      <Col  md={12}>
-                        <Link to={`/detailedcontent/${content._id}`}>
-                        
-                        <Card style={{width: "377px", height:"430px"}} >                          
-                          <Card.Body>
-                          {/* <Card.Body style={{height:"350px"}}> */}
-                            <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
-                            <div style={{ marginLeft: 'auto', paddingRight:"15px"}}>
-                              <p style={{ fontSize: "13px", fontWeight: "500", color: "rgba(119, 119, 119, 0.7)", textAlign: "left" }}>
-                                post by: {content.owner.length>16?content.owner.slice(0,15)+"...":content.owner.slice(0,15)}
-                              </p>
-                            </div>
-                            <iframe width="335px" height="189px" src={`https://www.youtube.com/embed/${thumbnailEmbed(content.link)}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-
-                             
-                            <Card.Text style={{marginTop:"10px"}}>
-                              {content.description.length>65?content.description.slice(0,65)+"...":content.description}
-                            </Card.Text>  
-                          </Card.Body>              
-                            <Card.Footer>
-                              <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                  <IconButton aria-label="up vote">
-                                    <ThumbUpSharpIcon />
-                                  </IconButton>
-                                  <IconButton aria-label="down vote button">
-                                    <ThumbDownAltSharpIcon />
-                                  </IconButton>
-                                </div>
-                                <div style={{ }}>
-                                  <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
-                                    likes: {content.like}
-                                  </p>
-                                </div>
-                              </Box>
-                            </Card.Footer>
-                        </Card>
-
-                        </Link>
-                      </Col>
-                    </li>
-                ))}
-                </Row>
-            </ul>
-        </div>
+    <div style={{justifyItems:"center", border:"0px solid", margin: "auto", width: "60%", padding: "10px"}}>
+      <ul style={{ display: "flex", flexWrap: "wrap" }}>            
+        <Row xs={1} md={2} className="g-4" style={{}}>
+          {allContent.map((content) => (
+            <li className='main-card' key={content._id} style={{listStyleType:"none"}}>
+              <Col  md={12}>                        
+                <Card style={{width: "377px", height:"430px"}} >                          
+                  <Link to={`/detailedcontent/${content._id}`}>
+                    <Card.Body>
+                      <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
+                      <div style={{ marginLeft: 'auto', paddingRight:"15px"}}>
+                        <p style={{ fontSize: "13px", fontWeight: "500", color: "rgba(119, 119, 119, 0.7)", textAlign: "left" }}>
+                          post by: {content.owner.length>16?content.owner.slice(0,15)+"...":content.owner.slice(0,15)}
+                        </p>
+                      </div>
+                      <iframe width="335px" height="189px" src={`https://www.youtube.com/embed/${thumbnailEmbed(content.link)}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                      <Card.Text style={{marginTop:"10px"}}>
+                        {content.description.length>65?content.description.slice(0,65)+"...":content.description}
+                      </Card.Text>  
+                    </Card.Body>    
+                  </Link>
+                  <Card.Footer>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
+                      {/* <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <IconButton aria-label="up vote">
+                          <ThumbUpSharpIcon />
+                        </IconButton>
+                        <IconButton aria-label="down vote button">
+                          <ThumbDownAltSharpIcon />
+                        </IconButton>
+                      </div> */}
+                      <div style={{ }}>
+                        <p style={{ margin:"1px 10px 5px 3px", fontSize:"15px", fontWeight:"500", color:"rgba(119, 119, 119, 0.7)", textAlign:'right' }}>
+                          likes: {content.like}
+                        </p>
+                      </div>
+                    </Box>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            </li>
+          ))}
+        </Row>
+      </ul>
+    </div>
   )
 }
+
+
  function PDFpanel(search, setSearch) {
    const [pdfContent, setPdfContent] = useState([])
    useEffect(() => {
@@ -167,9 +164,7 @@ function a11yProps(index) {
                 {pdfContent && pdfContent.map((content) => (
                     <li className='main-card' key={content._id}>
                       <Col>
-                      <Card style={{width: "377px", height:"430px"}}>                          
-
-
+                      <Card style={{width: "377px", height:"430px"}}>                   
                       <Card.Body>
                         <Card.Title style={{fontSize:"1em"}}>{content.title}</Card.Title>
                           <div style={{ marginLeft: 'auto', paddingRight:"15px"}}>
@@ -177,11 +172,8 @@ function a11yProps(index) {
                               post by: {content.owner.length>16?content.owner.slice(0,15)+"...":content.owner.slice(0,15)}
                             </p>
                             <h2>DOWNLOAD BUTTON HERE</h2>
-
                           </div>
                       </Card.Body>
-
-
                       <Card.Footer>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', width:"100%",alignItems: 'center' }}>
                           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -199,10 +191,8 @@ function a11yProps(index) {
                           </div>
                         </Box>
                       </Card.Footer>
-
                         <div >
                             <h2>DOWNLOAD BUTTON HERE</h2>
-                            {/* <h2>{contnent.videoTitle}</h2> */}
                         </div>
 
                         <div >
