@@ -62,7 +62,7 @@ export const SearchBar = ({ setResults }) => {
   };
 
   return (
-    <div className="input-wrapper">
+    <div className="input-wrapper" style={{height:"67px"}}>
       <FaSearch id="search-icon" />
       <input
         placeholder="Type to search..."
