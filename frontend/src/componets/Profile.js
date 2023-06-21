@@ -1,4 +1,4 @@
- import React from "react";
+import React from "react";
 import "./profile.css";
 
 function Profile() {
@@ -734,6 +734,7 @@ function Profile() {
                           name="email"
                           placeholder="Email"
                           required=""
+                          style={{"font-size" : "15px"}}
                         />
                       </div>
                       <div className="input_field">
@@ -746,6 +747,7 @@ function Profile() {
                           name="password"
                           placeholder="Password"
                           required=""
+                          style={{"font-size" : "15px"}}
                         />
                       </div>
                       <div className="input_field">
@@ -761,6 +763,7 @@ function Profile() {
                           name="upi"
                           placeholder="UPI Id"
                           required=""
+                          style={{"font-size" : "15px"}}
                         />
                       </div>
                       <div className="row clearfix">
@@ -777,6 +780,7 @@ function Profile() {
                               type="text"
                               name="name"
                               placeholder="Amount"
+                              style={{"font-size" : "15px"}}
                             />
                           </div>
                         </div>
@@ -794,6 +798,7 @@ function Profile() {
                               name="name"
                               placeholder="Confirm amount"
                               required=""
+                              style={{"font-size" : "15px"}}
                             />
                           </div>
                         </div>
@@ -803,7 +808,7 @@ function Profile() {
                           <input type="checkbox" id="cb1" />
                           <label
                             htmlFor="cb1"
-                            style={{ color: "black", "font-weight": "500" }}
+                            style={{ color: "black", "font-weight": "500", "font-size" : "15px","paddingRight" : "18px"}}
                           >
                             I agree with terms and conditions
                           </label>
@@ -812,7 +817,7 @@ function Profile() {
                           <input type="checkbox" id="cb2" />
                           <label
                             htmlFor="cb2"
-                            style={{ color: "black", "font-weight": "500" }}
+                            style={{ color: "black", "font-weight": "500", "font-size" : "15px", "paddingRight" : "32px" }}
                           >
                             I want to receive the newsletter
                           </label>
