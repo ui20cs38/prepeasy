@@ -2,29 +2,23 @@ import * as React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { node, number } from "prop-types";
-
 import IconButton from "@mui/material/IconButton";
 // import Button from "@mui/material/Button"
 import ThumbUpSharpIcon from "@mui/icons-material/ThumbUpSharp";
 import ThumbDownAltSharpIcon from "@mui/icons-material/ThumbDownAltSharp";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-
 import staticContent from "../../config/ytContentDummy.js";
 // import pdfContent from "../../config/pdfContent.js";
 import pdfContent from "../../config/pdfContentDummy.js";
 import { Tab, Tabs, Typography } from "@mui/material";
 // import Search from '../search/index.jsx';
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { SearchBar } from "../search/SearchBar.jsx";
 import { SearchResultsList } from "../search/SearchResultsList.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPersonDotsFromLine } from "@fortawesome/free-solid-svg-icons";
 import imgsvg from "../pages/user-solid.svg";
-import Profile from "../Profile.js";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -359,19 +353,7 @@ function ListPage() {
   }, [search]);
 
   const [results, setResults] = useState([]);
-
-  var data = require("../MOCK_DATA.json");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const onSearch = (searchTerm) => {
-    setValue(searchTerm);
-    // our api to fetch the search result
-    console.log("search ", searchTerm);
-  };
-
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-white shadow-lg">
@@ -380,22 +362,25 @@ function ListPage() {
             Prep <span className="text-danger">Easy</span>
           </a>
           <ul className="navbar-nav ms-auto">
-            <li type="" className="nav-item" style={{ paddingRight: "15px" }}>
+            <li type="" className="nav-item" style={{ paddingRight: "8px" }}>
               <a className="nav-link click-scroll" href="#section_5">
-                About us
+                <Link to={"/"}>About us</Link>
               </a>
             </li>
             <li type="" className="nav-item">
-              <a className="nav-link click-scroll" href={Profile}>
+              <a className="nav-link click-scroll">
+              <Link to={"/profile"}>
                 <img
                   src={imgsvg}
                   alt="profile"
                   style={{
-                    height: "20px",
-                    width: "20px",
+                    height: "22px",
+                    width: "22px",
                     cursor: "pointer",
+                    marginTop:"-3px"
                   }}
                 />
+                </Link>
               </a>
             </li>
           </ul>
@@ -419,22 +404,24 @@ function ListPage() {
             borderRadius: "15px",
             background: "white",
             margin: "30px",
+            marginTop: "30px"
           }}
         >
           <SearchBar setResults={setResults} style={{ height: "70px" }} />
           {results && results.length > 0 && (
-            <SearchResultsList results={results} setSearch={setSearch} />
+            <SearchResultsList results={results} setSearch={setSearch}/>
           )}
         </div>
 
         <div className="body">
           <div className="table_container">
-            <Box sx={{ width: "100%" }}>
+            <Box sx={{ width: "96%" }}>
               <Box
                 sx={{
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
+                  marginTop:"125px"
                 }}
               >
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
