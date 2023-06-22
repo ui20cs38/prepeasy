@@ -21,6 +21,10 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { SearchBar } from "../search/SearchBar.jsx";
 import { SearchResultsList } from "../search/SearchResultsList.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonDotsFromLine } from "@fortawesome/free-solid-svg-icons";
+import imgsvg from "../pages/user-solid.svg";
+import Profile from "../Profile.js";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -87,19 +91,26 @@ function YTpanel(search, setSearch) {
     <div
       style={{
         justifyItems: "center",
-        border: "0px solid",
+        alignItems: "center",
         margin: "auto",
-        width: "60%",
+        width: "fit-content",
         padding: "10px",
       }}
     >
-      <ul style={{ display: "flex", flexWrap: "wrap" }}>
-        <Row xs={1} md={2} className="g-4" style={{}}>
+      <ul
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          marginTop: "15px",
+          marginLeft: "-50px",
+        }}
+      >
+        <Row xs={1} md={3} style={{ marginLeft: "0px" }}>
           {allContent.map((content) => (
             <li
               className="main-card"
               key={content._id}
-              style={{ listStyleType: "none" }}
+              style={{ listStyleType: "none", marginBottom: "30px" }}
             >
               <Col md={12}>
                 <Card style={{ width: "377px", height: "430px" }}>
@@ -130,7 +141,6 @@ function YTpanel(search, setSearch) {
                           content.link
                         )}`}
                         title="YouTube video player"
-                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       ></iframe>
@@ -150,14 +160,14 @@ function YTpanel(search, setSearch) {
                         alignItems: "center",
                       }}
                     >
-                      {/* <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <div style={{ display: "flex", alignItems: "center" }}>
                         <IconButton aria-label="up vote">
                           <ThumbUpSharpIcon />
                         </IconButton>
                         <IconButton aria-label="down vote button">
                           <ThumbDownAltSharpIcon />
                         </IconButton>
-                      </div> */}
+                      </div>
                       <div style={{}}>
                         <p
                           style={{
@@ -349,102 +359,112 @@ function ListPage() {
   }, [search]);
 
   const [results, setResults] = useState([]);
+
+  var data = require("../MOCK_DATA.json");
+
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const onSearch = (searchTerm) => {
+    setValue(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+  };
+
   return (
-    <div className="App">
-      <header className="site-header">
+    <div>
+      <nav className="navbar navbar-expand-lg bg-white shadow-lg">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-3 col-md-5 col-7">
-              <p className="text-black mb-0" style={{ width: "300px" }}>
-                <i className="bi-clock site-header-icon me-2" />
-                Announcement: This is Saturdays
-              </p>
-            </div>
-            <div className="col-lg-3 col-md-3 col-12 ms-auto">
-              <ul className="social-icon">
-                <li>
-                  <a
-                    href="https://facebook.com/tooplate"
-                    className="social-icon-link bi-facebook"
-                  />
-                </li>
-                <li>
-                  <a
-                    href="https://pinterest.com/tooplate"
-                    className="social-icon-link bi-pinterest"
-                  />
-                </li>
-                <li>
-                  <a
-                    href="https://twitter.com/minthu"
-                    className="social-icon-link bi-twitter"
-                  />
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/tooplate"
-                    className="social-icon-link bi-youtube"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
+          <a href="#" className="navbar-brand">
+            Prep <span className="text-danger">Easy</span>
+          </a>
+          <ul className="navbar-nav ms-auto">
+            <li type="" className="nav-item" style={{ paddingRight: "15px" }}>
+              <a className="nav-link click-scroll" href="#section_5">
+                About us
+              </a>
+            </li>
+            <li type="" className="nav-item">
+              <a className="nav-link click-scroll" href={Profile}>
+                <img
+                  src={imgsvg}
+                  alt="profile"
+                  style={{
+                    height: "20px",
+                    width: "20px",
+                    cursor: "pointer",
+                  }}
+                />
+              </a>
+            </li>
+          </ul>
         </div>
-      </header>
-      <a href="#" className="navbar-brand" style={{ marginLeft: "20px" }}>
-        Prep <span className="text-danger">Easy</span>
-      </a>
+      </nav>
 
       <div
-        // className="search-bar-container"
         style={{
-          width: "600px",
-          height:"70px",
-          marginLeft: "500px",
-          border: "5px solid yellow",
-          borderRadius: "15px",
-          background:"white"
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <SearchBar setResults={setResults} style={{height:"70px"}}/>
-        {results && results.length > 0 && (
-          <SearchResultsList results={results} setSearch={setSearch} style={{marginTop:"40px"}}/>
-        )}
-      </div>
+        <div
+          // className="search-bar-container"
+          style={{
+            width: "800px",
+            height: "70px",
+            border: "2px solid yellow",
+            borderRadius: "15px",
+            background: "white",
+            margin: "30px",
+          }}
+        >
+          <SearchBar setResults={setResults} style={{ height: "70px" }} />
+          {results && results.length > 0 && (
+            <SearchResultsList results={results} setSearch={setSearch} />
+          )}
+        </div>
 
-      <div className="body">
-        <div className="table_container">
-          <Box sx={{ width: "100%" }}>
-            <Box
-              sx={{ width: "100%", display: "flex", justifyContent: "center" }}
-            >
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="basic tabs example"
-                  style={{width:"440px" , marginTop:"10px"}}
-                >
-                  <Tab style={{width:"200px", border:"2px solid yellow", borderRadius:"20px 20px 00px 00px", marginRight:"40px"}} label="YouTube videos" {...a11yProps(0)} />
-                  <Tab style={{width:"200px", border:"2px solid yellow", borderRadius:"20px 20px 00px 00px"}} label="PDF section" {...a11yProps(1)} />
-                </Tabs>
-              </Box>
-            </Box>
-
-            <div>
-              <TabPanel
-                className="YTclass"
-                value={value}
-                index={0}
-                style={{ width: "25px" }}
+        <div className="body">
+          <div className="table_container">
+            <Box sx={{ width: "100%" }}>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
               >
-                {YTpanel(search, setSearch)}
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                {PDFpanel()}
-              </TabPanel>
-            </div>
-          </Box>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="basic tabs example"
+                    style={{ width: "400px" }}
+                  >
+                    <Tab label="YouTube videos" {...a11yProps(0)} />
+                    <Tab label="PDF section" {...a11yProps(1)} />
+                  </Tabs>
+                </Box>
+              </Box>
+
+              <div>
+                <TabPanel
+                  className="YTclass"
+                  value={value}
+                  index={0}
+                  style={{ width: "25px" }}
+                >
+                  {YTpanel(search, setSearch)}
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                  {PDFpanel()}
+                </TabPanel>
+              </div>
+            </Box>
+          </div>
         </div>
       </div>
     </div>
