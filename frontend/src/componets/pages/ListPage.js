@@ -351,6 +351,46 @@ function ListPage() {
   const [results, setResults] = useState([]);
   return (
     <div className="App">
+      <header className="site-header">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-3 col-md-5 col-7">
+              <p className="text-black mb-0" style={{ width: "300px" }}>
+                <i className="bi-clock site-header-icon me-2" />
+                Announcement: This is Saturdays
+              </p>
+            </div>
+            <div className="col-lg-3 col-md-3 col-12 ms-auto">
+              <ul className="social-icon">
+                <li>
+                  <a
+                    href="https://facebook.com/tooplate"
+                    className="social-icon-link bi-facebook"
+                  />
+                </li>
+                <li>
+                  <a
+                    href="https://pinterest.com/tooplate"
+                    className="social-icon-link bi-pinterest"
+                  />
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/minthu"
+                    className="social-icon-link bi-twitter"
+                  />
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/tooplate"
+                    className="social-icon-link bi-youtube"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
       <a href="#" className="navbar-brand" style={{ marginLeft: "20px" }}>
         Prep <span className="text-danger">Easy</span>
       </a>
@@ -361,14 +401,14 @@ function ListPage() {
           width: "600px",
           height:"70px",
           marginLeft: "500px",
-          border: "2px solid yellow",
+          border: "5px solid yellow",
           borderRadius: "15px",
           background:"white"
         }}
       >
         <SearchBar setResults={setResults} style={{height:"70px"}}/>
         {results && results.length > 0 && (
-          <SearchResultsList results={results} setSearch={setSearch} />
+          <SearchResultsList results={results} setSearch={setSearch} style={{marginTop:"40px"}}/>
         )}
       </div>
 
@@ -383,10 +423,10 @@ function ListPage() {
                   value={value}
                   onChange={handleChange}
                   aria-label="basic tabs example"
-                  style={{width:"400px"}}
+                  style={{width:"440px" , marginTop:"10px"}}
                 >
-                  <Tab label="YouTube videos" {...a11yProps(0)} />
-                  <Tab label="PDF section" {...a11yProps(1)} />
+                  <Tab style={{width:"200px", border:"2px solid yellow", borderRadius:"20px 20px 00px 00px", marginRight:"40px"}} label="YouTube videos" {...a11yProps(0)} />
+                  <Tab style={{width:"200px", border:"2px solid yellow", borderRadius:"20px 20px 00px 00px"}} label="PDF section" {...a11yProps(1)} />
                 </Tabs>
               </Box>
             </Box>
