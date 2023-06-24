@@ -35,7 +35,8 @@ const DropZone = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(to right, #fde047, #fb923c)", position: "relative"
+        background: "linear-gradient(to right, #fde047, #fb923c)",
+        position: "relative",
       }}
     >
       <div style={{ display: "flex", "flex-direction": "row" }}>
@@ -75,10 +76,10 @@ const DropZone = () => {
                 laborum.Duis aute irure dolor in reprehenderit in voluptate
                 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                 sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.Excepteur
-                sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.sunt in culpa qui officia
-                deserunt mollit anim.
+                deserunt mollit anim id est laborum.Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.sunt in culpa qui officia deserunt
+                mollit anim.
               </h3>
             </div>
             <div style={{ "padding-top": "75px" }}>
@@ -104,7 +105,7 @@ const DropZone = () => {
             </div>
           </div>
         </div>
-        
+
         <div style={{ flex: "1", "padding-top": "3rem", position: "relative" }}>
           <div>
             <div
@@ -122,16 +123,28 @@ const DropZone = () => {
                   display: "flex",
                   backgroundColor: "#F97316",
                   border: "2px solid #6B7280",
-                  borderRadius: "0.5rem",              
+                  borderRadius: "0.5rem",
                   height: "fit-content",
                   padding: "2rem",
                   marginTop: "2em",
                 }}
               >
                 <section>
-                  <div style={{ display: "flex", flexDirection: "column", marginTop: "-45px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginTop: "-45px",
+                    }}
+                  >
                     <form action="">
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "start"}}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "start",
+                        }}
+                      >
                         <label
                           style={{
                             color: "#000000",
@@ -151,7 +164,7 @@ const DropZone = () => {
                             padding: "0.5rem",
                             height: "2.5rem",
                             width: "24rem",
-                            marginBottom: "-35px"
+                            marginBottom: "-35px",
                           }}
                           type="text"
                           id="title"
@@ -181,7 +194,7 @@ const DropZone = () => {
                             fontSize: "16px",
                             padding: "0.5rem",
                             width: "24rem",
-                            marginBottom: "-35px"
+                            marginBottom: "-35px",
                           }}
                           placeholder="Add Description"
                         />
@@ -211,7 +224,7 @@ const DropZone = () => {
                           }}
                           placeholder="Add Tags"
                         />
-                        
+
                         {/*<label className="pt-2 font-medium pb-2 text-base">
                         Add YouTube link :
                       </label>
@@ -262,7 +275,7 @@ const DropZone = () => {
                             style={{ height: "35px" }}
                             icon={faFileUpload}
                           />
-                          <input  {...getInputProps()} />
+                          <input {...getInputProps()} />
                           {isDragActive ? (
                             <p
                               style={{
@@ -271,7 +284,7 @@ const DropZone = () => {
                                 width: "24rem",
                                 padding: "0.5rem",
                                 color: "#000000",
-                                marginLeft: "65px"
+                                marginLeft: "65px",
                               }}
                             >
                               Drop the files here ...
@@ -284,7 +297,7 @@ const DropZone = () => {
                                 width: "24rem",
                                 padding: "0.5rem",
                                 color: "#000000",
-                                marginLeft: "65px"
+                                marginLeft: "65px",
                               }}
                             >
                               Drag & drop some files here, or click to select
@@ -402,7 +415,7 @@ const DropZone = () => {
                             cursor: "pointer",
                             height: "fit-content",
                             width: "24rem",
-                            padding: "10px"
+                            padding: "10px",
                           }}
                         />
                       </div>

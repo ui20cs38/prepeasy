@@ -22,11 +22,14 @@ export default function App() {
         <Route path="/utube" element={<Utube />}></Route>
         <Route path="/dropzone" element={<Dropzone />}></Route>
         <Route path="/listpage" element={<ListPage />}></Route>
-        <Route path="/detailedcontent/:id" element={<DetailedContent />}></Route>
+        <Route
+          path="/detailedcontent/:id"
+          element={<DetailedContent />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

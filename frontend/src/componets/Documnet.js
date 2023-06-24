@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/storage';
+import React, { useState } from "react";
+import firebase from "firebase/compat/app";
+import "firebase/compat/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBCJkSktQIrC9ggTA3A2BgWMKWT7JNut3g",
@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "documents-upload-c952c.appspot.com",
   messagingSenderId: "204410116443",
   appId: "1:204410116443:web:bdf1e072fe503f6606a27e",
-  measurementId: "G-6S3K4DJS5S"
+  measurementId: "G-6S3K4DJS5S",
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -29,9 +29,10 @@ function Documnet() {
       const uploadTask = storageRef.child(`pds/${file.name}`).put(file);
 
       uploadTask.on(
-        'state_changed',
+        "state_changed",
         (snapshot) => {
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% complete`);
         },
         (error) => {
@@ -39,7 +40,7 @@ function Documnet() {
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            console.log('File available at', downloadURL);
+            console.log("File available at", downloadURL);
           });
         }
       );

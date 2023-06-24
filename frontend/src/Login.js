@@ -74,7 +74,7 @@ function Login() {
     const data = res.json();
     // console.log(data)
     if (res.status === 200) {
-      history("/");
+      history("/listpage");
     } else {
       alert("Wrong Email or Password");
     }

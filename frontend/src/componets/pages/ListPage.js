@@ -18,7 +18,9 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { SearchBar } from "../search/SearchBar.jsx";
 import { SearchResultsList } from "../search/SearchResultsList.jsx";
-import imgsvg from "../pages/user-solid.svg";
+import imgsvg from "../pages/chart-line-solid.svg";
+import imgsvg1 from "../pages/user-solid.svg";
+import imgsvg2 from "../pages/user-plus-solid.svg";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -99,7 +101,7 @@ function YTpanel(search, setSearch) {
           marginLeft: "-50px",
         }}
       >
-        <Row xs={1} md={3} style={{ marginLeft: "0px" }}>
+        <Row xs={1} md={3} style={{ marginLeft: "25px" }}>
           {allContent.map((content) => (
             <li
               className="main-card"
@@ -107,7 +109,7 @@ function YTpanel(search, setSearch) {
               style={{ listStyleType: "none", marginBottom: "30px" }}
             >
               <Col md={12}>
-                <Card style={{ width: "377px", height: "430px" }}>
+                <Card style={{ width: "377px", height: "fit-content" }}>
                   <Link to={`/detailedcontent/${content._id}`}>
                     <Card.Body>
                       <Card.Title style={{ fontSize: "1em" }}>
@@ -353,33 +355,84 @@ function ListPage() {
   }, [search]);
 
   const [results, setResults] = useState([]);
-  
+
   return (
     <div>
+      <>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        <div
+          className="floating-container"
+          style={{ "margin-right": "0px", "z-index": "1" }}
+        >
+          <div className="floating-button" style={{ "margin-right": "15px" }}>
+            +
+          </div>
+          <div className="element-container">
+            <span className="float-element" style={{ cursor: "pointer" }}>
+              <Link to={"/utube"}>
+                <i className="material-icons">smart_display</i>
+              </Link>
+            </span>
+            <span className="float-element" style={{ cursor: "pointer" }}>
+              <Link to={"/dropzone"}>
+                <i className="material-icons">edit_square</i>
+              </Link>
+            </span>
+            <span className="float-element" style={{ cursor: "pointer" }}>
+              <Link to={"/dropzone"}>
+                <i className="material-icons">assignment_add</i>
+              </Link>
+            </span>
+          </div>
+        </div>
+      </>
       <nav className="navbar navbar-expand-lg bg-white shadow-lg">
         <div className="container">
           <a href="#" className="navbar-brand">
             Prep <span className="text-danger">Easy</span>
           </a>
           <ul className="navbar-nav ms-auto">
-            <li type="" className="nav-item" style={{ paddingRight: "8px" }}>
+            <li type="" className="nav-item">
               <a className="nav-link click-scroll" href="#section_5">
-                <Link to={"/"}>About us</Link>
+                <Link to={"/"} style={{ textDecoration: "none" }}>
+                  About us
+                </Link>
               </a>
             </li>
+            {/* if authenticate ? dashboard */}
             <li type="" className="nav-item">
               <a className="nav-link click-scroll">
-              <Link to={"/profile"}>
-                <img
-                  src={imgsvg}
-                  alt="profile"
-                  style={{
-                    height: "22px",
-                    width: "22px",
-                    cursor: "pointer",
-                    marginTop:"-3px"
-                  }}
-                />
+                <Link to={"/profile"}>
+                  <img
+                    src={imgsvg}
+                    alt="profile"
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      cursor: "pointer",
+                      marginTop: "-3px",
+                    }}
+                  />
+                </Link>
+              </a>
+            </li>
+            {/* if authenticate ? user-profile : login?signup */}
+            <li type="" className="nav-item">
+              <a className="nav-link click-scroll">
+                <Link to={"/login"}>
+                  <img
+                    src={imgsvg2}
+                    alt="profile"
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      cursor: "pointer",
+                      marginTop: "-3px",
+                    }}
+                  />
                 </Link>
               </a>
             </li>
@@ -404,12 +457,12 @@ function ListPage() {
             borderRadius: "15px",
             background: "white",
             margin: "30px",
-            marginTop: "30px"
+            marginTop: "30px",
           }}
         >
           <SearchBar setResults={setResults} style={{ height: "70px" }} />
           {results && results.length > 0 && (
-            <SearchResultsList results={results} setSearch={setSearch}/>
+            <SearchResultsList results={results} setSearch={setSearch} />
           )}
         </div>
 
@@ -421,10 +474,10 @@ function ListPage() {
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
-                  marginTop:"125px"
+                  marginTop: "125px",
                 }}
               >
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Box sx={{ borderBottom: "1", borderColor: "divider" }}>
                   <Tabs
                     value={value}
                     onChange={handleChange}
@@ -453,6 +506,56 @@ function ListPage() {
             </Box>
           </div>
         </div>
+      </div>
+      <div style={{ justifyContent: "center" }}>
+        <footer className="site-footer">
+          <div className="container">
+            <div className="row">
+              <div style={{ marginLeft: "435px" }}>
+                <div className="site-footer-wrap d-flex align-items-center">
+                  <ul className="social-icon">
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://facebook.com/tooplate"
+                        className="social-icon-link bi-facebook"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://pinterest.com/tooplate"
+                        className="social-icon-link bi-pinterest"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://twitter.com/minthu"
+                        className="social-icon-link bi-twitter"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://www.youtube.com/tooplate"
+                        className="social-icon-link bi-youtube"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  display: "flex",
+                  paddingTop: "20px",
+                }}
+              >
+                <p className="copyright-text mb-0 me-4">
+                  Copyright © 2023 PrepEasy
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../css/tooplate-waso-strategy.css";
 import "../css/bootstrap-icons.css";
+import { Link } from "react-router-dom";
 
 // import './css/bootstrap.min.css'
 // import './css/magnific-popup.css'
@@ -157,7 +158,7 @@ const Homepage = () => {
                         className="carousel-caption d-flex flex-column justify-content-center"
                         style={{ "margin-left": "58px" }}
                       >
-                        {/* //search BOx */}
+                        {/* //search BOx 
                         <div
                           style={{
                             "justify-content": " center",
@@ -206,11 +207,11 @@ const Homepage = () => {
                                 ))}
                             </div>
                           </div>
-                        </div>
-                        <h1 style={{ "margin-top": "0px" }}>
+                        </div>*/}
+                        <h1 style={{ "margin-top": "-50px" }}>
                           THE{" "}
                           <span className="text-warning">SUGGETION MASTER</span>{" "}
-                          for you
+                          for you !!!
                         </h1>
                       </div>
                     </div>
@@ -227,7 +228,7 @@ const Homepage = () => {
             </div>
           </div>
         </section>
-        <>
+        {/*<>
           <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
@@ -240,19 +241,24 @@ const Homepage = () => {
               +
             </div>
             <div className="element-container">
-              <span className="float-element tooltip-left">
-                <i className="material-icons">smart_display</i>
+              <span className="float-element" style={{ cursor: "pointer" }}>
+                <Link to={"/utube"}>
+                  <i className="material-icons">smart_display</i>
+                </Link>
               </span>
-
-              <span className="float-element">
-                <i className="material-icons">assignment_add</i>
+              <span className="float-element" style={{ cursor: "pointer" }}>
+                <Link to={"/dropzone"}>
+                  <i className="material-icons">edit_square</i>
+                </Link>
               </span>
-              <span className="float-element">
-                <i className="material-icons">edit_square</i>
+              <span className="float-element" style={{ cursor: "pointer" }}>
+              <Link to={"/dropzone"}>
+                  <i className="material-icons">assignment_add</i>
+                </Link>
               </span>
             </div>
           </div>
-        </>
+        </>*/}
         <section
           className="about section-padding"
           style={{ "padding-bottom": "100px" }}
@@ -716,7 +722,64 @@ const Homepage = () => {
           </div>
         </section>
       </main>
-      <footer className="site-footer">
+      <div style={{ justifyContent: "center" }}>
+        <footer className="site-footer">
+          <div className="container">
+            <div className="row">
+              <div style={{ marginLeft: "435px" }}>
+                <div className="site-footer-wrap d-flex align-items-center">
+                  <ul className="social-icon">
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://facebook.com/tooplate"
+                        className="social-icon-link bi-facebook"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://pinterest.com/tooplate"
+                        className="social-icon-link bi-pinterest"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://twitter.com/minthu"
+                        className="social-icon-link bi-twitter"
+                      />
+                    </li>
+                    <li style={{ paddingRight: "30px" }}>
+                      <a
+                        href="https://www.youtube.com/tooplate"
+                        className="social-icon-link bi-youtube"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  display: "flex",
+                  paddingTop: "20px",
+                }}
+              >
+                <p className="copyright-text mb-0 me-4">
+                  Copyright © 2023 PrepEasy
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+};
+export default Homepage;
+
+{
+  /*
+<footer className="site-footer">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-12">
@@ -755,7 +818,5 @@ const Homepage = () => {
           </div>
         </div>
       </footer>
-    </>
-  );
-};
-export default Homepage;
+ */
+}

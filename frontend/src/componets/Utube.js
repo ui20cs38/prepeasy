@@ -1,68 +1,54 @@
-import React,{useState} from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Utube = () => {
-
-
-  const useremail = "harshmavani06@gmail.com"
-
-
+  const useremail = "harshmavani06@gmail.com";
+  const history = useNavigate();
 
   const [title, setTitle] = useState("");
-  const handelTitle = (e) =>{
-    setTitle(e.target.value)
-    console.log(title)
-  }
+  const handelTitle = (e) => {
+    setTitle(e.target.value);
+    console.log(title);
+  };
   const [discription, setDiscription] = useState("");
-  const handelDiscription = (e) =>{
-    setDiscription(e.target.value)
-    console.log(discription)
-  }
+  const handelDiscription = (e) => {
+    setDiscription(e.target.value);
+    console.log(discription);
+  };
   const [ytlink, setYtlink] = useState("");
-  const handelYtlink = (e) =>{
-    setYtlink(e.target.value)
-    console.log(ytlink)
-  }
+  const handelYtlink = (e) => {
+    setYtlink(e.target.value);
+    console.log(ytlink);
+  };
 
-
-  const videoUpload = async(e)=>{
-
-    console.log("function callled")
+  const videoUpload = async (e) => {
+    console.log("function callled");
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/ytvideo",{
-      method: 'POST',
-      headers:{
-        "Content-Type":"application/json"
+    const res = await fetch("http://localhost:5000/ytvideo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          "owner":useremail,
-          "title":title,
-          "discription":discription,
-          "ytlink":ytlink,
-          "isYT":true,
-          "isPDF":false,
-          "like":0,
-          "dislike":0
-
-      })
-
-    })
+        owner: useremail,
+        title: title,
+        discription: discription,
+        ytlink: ytlink,
+        isYT: true,
+        isPDF: false,
+        like: 0,
+        dislike: 0,
+      }),
+    });
     const data = res.json();
-    if(res.status===200){
-      alert("Content uploaded successfully")
+    if (res.status === 200) {
+      history("/listpage");
+      alert("Content uploaded successfully");
+    } else {
+      alert("something went wrong");
     }
-    else{
-      alert("something went wrong")
-    }
-    console.log(data)
-
-  }
-
-
-
-  
-
-
+    console.log(data);
+  };
 
   return (
     <div style={{ background: "linear-gradient(to right, #fde047, #fb923c)" }}>
@@ -98,10 +84,9 @@ const Utube = () => {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                nulla pariatur.ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur.
               </h3>
             </div>
             <div style={{ "padding-top": "75px" }}>
@@ -144,16 +129,28 @@ const Utube = () => {
                   display: "flex",
                   backgroundColor: "#F97316",
                   border: "2px solid #6B7280",
-                  borderRadius: "0.5rem",              
+                  borderRadius: "0.5rem",
                   height: "fit-content",
                   padding: "2rem",
                   marginTop: "2em",
                 }}
               >
                 <section>
-                  <div style={{ display: "flex", flexDirection: "column", marginTop: "-45px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginTop: "-45px",
+                    }}
+                  >
                     <form action="">
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "start",
+                        }}
+                      >
                         <label
                           style={{
                             color: "#000000",
@@ -165,7 +162,8 @@ const Utube = () => {
                         >
                           Add Title of your content :
                         </label>
-                        <input onChange={handelTitle}
+                        <input
+                          onChange={handelTitle}
                           style={{
                             border: "2px solid #1F2937",
                             "border-radius": "0.5rem",
@@ -173,7 +171,7 @@ const Utube = () => {
                             padding: "0.5rem",
                             height: "2.5rem",
                             width: "24rem",
-                            marginBottom: "-35px"
+                            marginBottom: "-35px",
                           }}
                           type="text"
                           id="title"
@@ -192,7 +190,8 @@ const Utube = () => {
                         >
                           Description :
                         </label>
-                        <textarea onChange={handelDiscription}
+                        <textarea
+                          onChange={handelDiscription}
                           id="desc"
                           name="desc"
                           rows={5}
@@ -203,7 +202,7 @@ const Utube = () => {
                             fontSize: "16px",
                             padding: "0.5rem",
                             width: "24rem",
-                            marginBottom: "-35px"
+                            marginBottom: "-35px",
                           }}
                           placeholder="Add Description"
                         />
@@ -241,13 +240,13 @@ const Utube = () => {
                             marginLeft: "0px",
                             marginBottom: "5px",
                             fontSize: "16px",
-                            marginTop: "25px"
-                            
+                            marginTop: "25px",
                           }}
                         >
                           Add YouTube Link :
                         </label>
-                        <textarea onChange={handelYtlink}
+                        <textarea
+                          onChange={handelYtlink}
                           id="tags"
                           name="tags"
                           rows={1}
@@ -284,7 +283,7 @@ const Utube = () => {
                             cursor: "pointer",
                             height: "fit-content",
                             width: "24rem",
-                            padding: "10px"
+                            padding: "10px",
                           }}
                         />
                       </div>
