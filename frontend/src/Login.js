@@ -39,7 +39,7 @@ function Login() {
     const data = res.json();
     if (res.status === 200) {
       alert("register successfully");
-      history("/");
+      history("/login");
     } else {
       alert("Email already exist");
     }

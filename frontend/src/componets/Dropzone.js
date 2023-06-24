@@ -145,7 +145,7 @@ const DropZone = () => {
                           alignItems: "start",
                         }}
                       >
-                        <label
+                        {/*<label
                           style={{
                             color: "#000000",
                             fontWeight: "500",
@@ -157,6 +157,7 @@ const DropZone = () => {
                           Add Title of your content :
                         </label>
                         <input
+                          onChange={handelTitle}
                           style={{
                             border: "2px solid #1F2937",
                             "border-radius": "0.5rem",
@@ -169,6 +170,33 @@ const DropZone = () => {
                           type="text"
                           id="title"
                           name="title"
+                          placeholder="Add Title"
+                        />*/}
+
+                        <label
+                          style={{
+                            color: "#000000",
+                            fontWeight: "500",
+                            marginLeft: "0px",
+                            marginBottom: "5px",
+                            fontSize: "16px",
+                          }}
+                        >
+                          Add Title of your content :
+                        </label>
+                        <textarea
+                          id="desc"
+                          name="desc"
+                          rows={1}
+                          cols={30}
+                          style={{
+                            border: "1px solid #1F2937",
+                            borderRadius: "0.5rem",
+                            fontSize: "16px",
+                            padding: "0.5rem",
+                            width: "24rem",
+                            marginBottom: "-35px",
+                          }}
                           placeholder="Add Title"
                         />
 
