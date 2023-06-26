@@ -52,12 +52,12 @@ const Utube = () => {
   return (
     <div style={{ background: "linear-gradient(to right, #fde047, #fb923c)" }}>
       <div style={{ display: "flex", "flex-direction": "row" }}>
-        <div style={{ flex: "1", "padding-top": "30px" }}>
+        <div style={{ flex: "1", "padding-top": "20px" }}>
           <div style={{ padding: "48px" }}>
             <div>
               <h1
                 style={{
-                  "font-size": "3rem",
+                  "font-size": "2.5rem",
                   "font-weight": "900",
                   "padding-left": "1rem",
                 }}
@@ -80,12 +80,7 @@ const Utube = () => {
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur.
+                enim ad minim veniam,
               </h3>
             </div>
             <div style={{ "padding-top": "75px" }}>
@@ -111,7 +106,7 @@ const Utube = () => {
             </div>
           </div>
         </div>
-        <div style={{ flex: "1", "padding-top": "3rem" }}>
+        <div style={{ flex: "1", "padding-top": "1rem" }}>
           <div>
             <div
               style={{
@@ -139,7 +134,7 @@ const Utube = () => {
                     style={{
                       display: "flex",
                       flexDirection: "column",
-                      marginTop: "-45px",
+                      marginTop: "-55px",
                     }}
                   >
                     <form action="">
@@ -183,8 +178,8 @@ const Utube = () => {
                             color: "#000000",
                             fontWeight: "500",
                             marginLeft: "0px",
-                            marginBottom: "5px",
-                            fontSize: "16px",
+                            marginBottom: "2px",
+                            fontSize: "14px",
                           }}
                         >
                           Add Title of your content :
@@ -198,9 +193,9 @@ const Utube = () => {
                           style={{
                             border: "1px solid #1F2937",
                             borderRadius: "0.5rem",
-                            fontSize: "16px",
+                            fontSize: "12px",
                             padding: "0.5rem",
-                            width: "24rem",
+                            width: "22rem",
                             marginBottom: "-35px",
                           }}
                           placeholder="Add Title"
@@ -211,8 +206,8 @@ const Utube = () => {
                             color: "#000000",
                             fontWeight: "500",
                             marginLeft: "0px",
-                            marginBottom: "5px",
-                            fontSize: "16px",
+                            marginBottom: "2px",
+                            fontSize: "14px",
                           }}
                         >
                           Description :
@@ -221,14 +216,14 @@ const Utube = () => {
                           onChange={handelDiscription}
                           id="desc"
                           name="desc"
-                          rows={5}
+                          rows={4}
                           cols={30}
                           style={{
                             border: "1px solid #1F2937",
                             borderRadius: "0.5rem",
-                            fontSize: "16px",
+                            fontSize: "12px",
                             padding: "0.5rem",
-                            width: "24rem",
+                            width: "22rem",
                             marginBottom: "-35px",
                           }}
                           placeholder="Add Description"
@@ -239,8 +234,8 @@ const Utube = () => {
                             color: "#000000",
                             fontWeight: "500",
                             marginLeft: "0px",
-                            marginBottom: "5px",
-                            fontSize: "16px",
+                            marginBottom: "2px",
+                            fontSize: "14px",
                           }}
                         >
                           Add Tags :
@@ -253,9 +248,9 @@ const Utube = () => {
                           style={{
                             border: "1px solid #1F2937",
                             borderRadius: "0.75rem",
-                            fontSize: "16px",
+                            fontSize: "12px",
                             padding: "0.5rem",
-                            width: "24rem",
+                            width: "22rem",
                           }}
                           placeholder="Add Tags"
                         />
@@ -265,8 +260,8 @@ const Utube = () => {
                             color: "#000000",
                             fontWeight: "500",
                             marginLeft: "0px",
-                            marginBottom: "5px",
-                            fontSize: "16px",
+                            marginBottom: "2px",
+                            fontSize: "14px",
                             marginTop: "25px",
                           }}
                         >
@@ -281,9 +276,9 @@ const Utube = () => {
                           style={{
                             border: "1px solid #1F2937",
                             borderRadius: "0.75rem",
-                            fontSize: "16px",
+                            fontSize: "12px",
                             padding: "0.5rem",
-                            width: "24rem",
+                            width: "22rem",
                           }}
                           placeholder="Add YouTube Link"
                         />
@@ -304,12 +299,12 @@ const Utube = () => {
                           onClick={videoUpload}
                           style={{
                             backgroundColor: "yellow",
-                            fontSize: "16px",
+                            fontSize: "14px",
                             borderRadius: "0.375rem",
                             marginTop: "2rem",
                             cursor: "pointer",
                             height: "fit-content",
-                            width: "24rem",
+                            width: "22rem",
                             padding: "10px",
                           }}
                         />

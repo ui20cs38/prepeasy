@@ -82,7 +82,7 @@ function Login() {
 
   return (
     <>
-      <div className="b1">
+      <div className="b1" >
         <div className="main3">
           <input type="checkbox" id="chk" aria-hidden="true" />
           <div className="signup">

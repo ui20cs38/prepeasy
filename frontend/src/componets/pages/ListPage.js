@@ -370,6 +370,7 @@ function ListPage() {
           <div className="floating-button" style={{ "margin-right": "15px" }}>
             +
           </div>
+          <span className="float-element"></span>
           <div className="element-container">
             <span className="float-element" style={{ cursor: "pointer" }}>
               <Link to={"/utube"}>
@@ -381,11 +382,6 @@ function ListPage() {
                 <i className="material-icons">edit_square</i>
               </Link>
             </span>
-            <span className="float-element" style={{ cursor: "pointer" }}>
-              <Link to={"/dropzone"}>
-                <i className="material-icons">assignment_add</i>
-              </Link>
-            </span>
           </div>
         </div>
       </>
@@ -394,7 +390,7 @@ function ListPage() {
           <a href="#" className="navbar-brand">
             Prep <span className="text-danger">Easy</span>
           </a>
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto" style={{ marginRight: "-30px" }}>
             <li type="" className="nav-item">
               <a className="nav-link click-scroll" href="#section_5">
                 <Link to={"/"} style={{ textDecoration: "none" }}>
