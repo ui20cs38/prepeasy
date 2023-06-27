@@ -50,9 +50,9 @@ const Utube = () => {
   };
 
   return (
-    <div>
+    <div style={{height: "760px"}}>
       <div style={{ display: "flex", "flex-direction": "row" }}>
-        <div style={{ flex: "1", "padding-top": "20px" }}>
+        <div style={{ flex: "1", "padding-top": "10px", border:"0px solid black", margin:"50px 0 0 60px" }}>
           <div style={{ padding: "48px" }}>
             <div>
               <h1
@@ -62,46 +62,59 @@ const Utube = () => {
                   "padding-left": "1rem",
                 }}
               >
-                Get your new{" "}
+                What's {" "}
                 <span style={{ "font-weight": "900", color: "#b91c1c" }}>
-                  Income
+                  new
                 </span>{" "}
-                source!!!
+                today?
               </h1>
             </div>
             <div>
-              <h3
+              <h5
                 style={{
-                  "font-size": "1.125rem",
-                  "font-weight": "900",
+                  "font-weight": "500",
+                  "padding-left": "1rem",
+                  "padding-top": "0.5rem",
+                  fontFamily:"inherit",
+                  letterSpacing:"0.3px",
+                }}
+              >
+                Share the clear and 'to-the-point' content to community of students just like us. Because we know today's content ocean is very huge and we suffer getting 'to-the-point' content that really helps.
+              </h5>
+            </div>
+            <div style={{ "padding-top": "25px" }}>
+              <h1
+                style={{
+                  fontSize: "2.5rem",
+                  fontWeight: "900",
+                  paddingLeft: "1rem",
+                }}
+              >
+                Upload content Here and,{` `}
+              {/* <span style={{ borderRadius:"10px", backgroundColor:"green",color: "#f9a825" }}> ‎ Earn Money ‎</span> */} <br />
+              <div style={{ 
+                borderRadius:"10px", 
+                backgroundColor:"#f9a825",
+                color: "green",
+                marginTop:"3px",
+                paddingBottom:"5px",
+                width:"fit-content"
+              }}> ‎ Earn Money! ‎</div>
+              </h1>
+              <div>
+              <h5
+                style={{
+                  // "font-size": "1.125rem",
+                  "font-weight": "500",
                   "padding-left": "1rem",
                   "padding-top": "2rem",
+                  fontFamily:"inherit",
+                  letterSpacing:"0.3px",
                 }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam,
-              </h3>
+                You'll earn according to engagement on content that you share.
+              </h5>
             </div>
-            <div style={{ "padding-top": "75px" }}>
-              <h1
-                style={{
-                  "font-size": "2.5rem",
-                  "font-weight": "900",
-                  "padding-left": "1rem",
-                }}
-              >
-                Upload your valuable content Here and,
-              </h1>
-              <h1
-                style={{
-                  "font-size": "2.5rem",
-                  "font-weight": "900",
-                  padding: "1rem",
-                }}
-              >
-                <span style={{ color: "#047857" }}>Earn Money</span> 
-              </h1>
               <hr style={{ border: "1px solid #000000" }} />
             </div>
           </div>
@@ -121,8 +134,9 @@ const Utube = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   display: "flex",
-                  backgroundColor: "white",
-                 boxShadow: "0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)",
+                  backgroundColor: "#f9a825",
+                  boxShadow:
+                    "0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)",
                   borderRadius: "0.5rem",
                   height: "fit-content",
                   padding: "2rem",
@@ -132,82 +146,56 @@ const Utube = () => {
                 <section>
                   <div
                     style={{
+                      
                       display: "flex",
                       flexDirection: "column",
                       marginTop: "-55px",
                     }}
                   >
-                    <form action="">
+                    <form action="" style={{fontWeight:"500", fontSize:"large"}}>
                       <div
                         style={{
+                          
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "start",
                         }}
-                      >
-                        {/*<label
-                          style={{
-                            color: "#000000",
-                            fontWeight: "500",
-                            marginLeft: "0px",
-                            marginBottom: "-15px",
-                            fontSize: "16px",
-                          }}
-                        >
-                          Add Title of your content :
-                        </label>
-                        <input
-                          onChange={handelTitle}
-                          style={{
-                            border: "2px solid #1F2937",
-                            "border-radius": "0.5rem",
-                            fontSize: "16px",
-                            padding: "0.5rem",
-                            height: "2.5rem",
-                            width: "24rem",
-                            marginBottom: "-35px",
-                          }}
-                          type="text"
-                          id="title"
-                          name="title"
-                          placeholder="Add Title"
-                        />*/}
-
+                      >     
                         <label
                           style={{
+                            fontWeight:"600", 
+                            fontSize:"18px",
                             color: "#000000",
-                            fontWeight: "500",
                             marginLeft: "0px",
                             marginBottom: "2px",
-                            fontSize: "14px",
                           }}
-                        >
+                          >
                           Add Title of your content :
                         </label>
-                        <textarea
+                        <input                          
                           onChange={handelTitle}
                           id="desc"
                           name="desc"
-                          rows={1}
-                          cols={30}
                           style={{
-                            border: "1px solid #1F2937",
-                            borderRadius: "0.5rem",
+                            backgroundColor:"white",
+                            border:"none",   
+                            borderRadius: "0.2rem",
                             fontSize: "12px",
                             padding: "0.5rem",
                             width: "22rem",
                             marginBottom: "-35px",
                           }}
                           placeholder="Add Title"
-                        />
+                          />
+                               
 
                         <label
                           style={{
+                            fontWeight:"600", 
+                            fontSize:"18px",
                             color: "#000000",
-                            fontWeight: "500",
                             marginLeft: "0px",
                             marginBottom: "2px",
-                            fontSize: "14px",
                           }}
                         >
                           Description :
@@ -216,11 +204,9 @@ const Utube = () => {
                           onChange={handelDiscription}
                           id="desc"
                           name="desc"
-                          rows={4}
-                          cols={30}
                           style={{
-                            border: "1px solid #1F2937",
-                            borderRadius: "0.5rem",
+                            border:"none",                            
+                            borderRadius: "0.2rem",
                             fontSize: "12px",
                             padding: "0.5rem",
                             width: "22rem",
@@ -232,22 +218,21 @@ const Utube = () => {
                         <label
                           style={{
                             color: "#000000",
-                            fontWeight: "500",
                             marginLeft: "0px",
                             marginBottom: "2px",
-                            fontSize: "14px",
+                            fontWeight:"600", 
+                            fontSize:"18px",
                           }}
                         >
                           Add Tags :
                         </label>
-                        <textarea
+                        <input
                           id="tags"
                           name="tags"
-                          rows={2}
-                          cols={30}
                           style={{
-                            border: "1px solid #1F2937",
-                            borderRadius: "0.75rem",
+                            backgroundColor:"white",
+                            border:"none",   
+                            borderRadius: "0.2rem",
                             fontSize: "12px",
                             padding: "0.5rem",
                             width: "22rem",
@@ -258,24 +243,23 @@ const Utube = () => {
                         <label
                           style={{
                             color: "#000000",
-                            fontWeight: "500",
                             marginLeft: "0px",
                             marginBottom: "2px",
                             fontSize: "14px",
-                            marginTop: "25px",
+                            fontWeight:"600", 
+                            fontSize:"18px",
                           }}
                         >
                           Add YouTube Link :
                         </label>
-                        <textarea
+                        <input
                           onChange={handelYtlink}
                           id="tags"
                           name="tags"
-                          rows={1}
-                          cols={30}
                           style={{
-                            border: "1px solid #1F2937",
-                            borderRadius: "0.75rem",
+                            backgroundColor:"white",
+                            border:"none",   
+                            borderRadius: "0.2rem",
                             fontSize: "12px",
                             padding: "0.5rem",
                             width: "22rem",
@@ -306,6 +290,8 @@ const Utube = () => {
                             height: "fit-content",
                             width: "22rem",
                             padding: "10px",
+                            boxShadow:
+                    "0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)",
                           }}
                         />
                       </div>
