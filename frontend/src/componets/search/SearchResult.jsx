@@ -11,6 +11,7 @@ export const SearchResult = ({ result, setSearch }) => {
   }
   return (
     <div
+     style={{ backgroundColor:"whitesmoke",  zIndex:"1300"}}
       className="search-result"
       onClick={(e) => {
         setSearch(result.title)

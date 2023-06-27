@@ -50,7 +50,7 @@ const Utube = () => {
   };
 
   return (
-    <div style={{ background: "linear-gradient(to right, #fde047, #fb923c)" }}>
+    <div>
       <div style={{ display: "flex", "flex-direction": "row" }}>
         <div style={{ flex: "1", "padding-top": "20px" }}>
           <div style={{ padding: "48px" }}>
@@ -100,7 +100,7 @@ const Utube = () => {
                   padding: "1rem",
                 }}
               >
-                <span style={{ color: "#047857" }}>Earn Money</span> 🤑🤑.
+                <span style={{ color: "#047857" }}>Earn Money</span> 
               </h1>
               <hr style={{ border: "1px solid #000000" }} />
             </div>
@@ -121,8 +121,8 @@ const Utube = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   display: "flex",
-                  backgroundColor: "#F97316",
-                  border: "2px solid #6B7280",
+                  backgroundColor: "white",
+                 boxShadow: "0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)",
                   borderRadius: "0.5rem",
                   height: "fit-content",
                   padding: "2rem",

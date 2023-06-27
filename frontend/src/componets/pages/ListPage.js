@@ -21,6 +21,7 @@ import { SearchResultsList } from "../search/SearchResultsList.jsx";
 import imgsvg from "../pages/chart-line-solid.svg";
 import imgsvg1 from "../pages/user-solid.svg";
 import imgsvg2 from "../pages/user-plus-solid.svg";
+import zIndex from "@mui/material/styles/zIndex.js";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -109,11 +110,23 @@ function YTpanel(search, setSearch) {
               style={{ listStyleType: "none", marginBottom: "30px" }}
             >
               <Col md={12}>
-                <Card style={{ width: "377px", height: "fit-content" }}>
-                  <Link to={`/detailedcontent/${content._id}`}>
+                <Card
+                  style={{
+                    width: "377px",
+                    height: "437px",
+                    boxShadow:
+                      "0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)",
+                  }}
+                >
+                  <Link
+                    to={`/detailedcontent/${content._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <Card.Body>
                       <Card.Title style={{ fontSize: "1em" }}>
-                        {content.title}
+                        {content.title.length > 31
+                          ? content.title.slice(0, 31) + "..."
+                          : content.title}
                       </Card.Title>
                       <div style={{ marginLeft: "auto", paddingRight: "15px" }}>
                         <p
@@ -140,9 +153,9 @@ function YTpanel(search, setSearch) {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       ></iframe>
-                      <Card.Text style={{ marginTop: "10px" }}>
-                        {content.description.length > 65
-                          ? content.description.slice(0, 65) + "..."
+                      <Card.Text style={{ marginTop: "10px", height: "50px" }}>
+                        {content.description.length > 63
+                          ? content.description.slice(0, 63) + "..."
                           : content.description}
                       </Card.Text>
                     </Card.Body>
@@ -367,25 +380,32 @@ function ListPage() {
           className="floating-container"
           style={{ "margin-right": "0px", "z-index": "1" }}
         >
-          <div className="floating-button" style={{ "margin-right": "15px" }}>
+          <div
+            className="floating-button"
+            style={{ "margin-right": "15px", backgroundColor: "#f9a825" }}
+          >
             +
           </div>
           <span className="float-element"></span>
           <div className="element-container">
-            <span className="float-element" style={{ cursor: "pointer" }}>
-              <Link to={"/utube"}>
-                <i className="material-icons">smart_display</i>
-              </Link>
-            </span>
-            <span className="float-element" style={{ cursor: "pointer" }}>
-              <Link to={"/dropzone"}>
-                <i className="material-icons">edit_square</i>
-              </Link>
-            </span>
+            <Link to={"/utube"}>
+              <span className="float-element" style={{ cursor: "pointer" }}>
+                <i className="material-icons" style={{ color: "white" }}>
+                  smart_display
+                </i>
+              </span>
+            </Link>
+            <Link to={"/dropzone"}>
+              <span className="float-element" style={{ cursor: "pointer", backgroundColor:"green" }}>
+                <i className="material-icons" style={{ color: "white" }}>
+                  edit_square
+                </i>
+              </span>
+            </Link>
           </div>
         </div>
       </>
-      <nav className="navbar navbar-expand-lg bg-white shadow-lg">
+      <nav className="navbar navbar-expand-lg bg-white shadow-sm">
         <div className="container">
           <a href="#" className="navbar-brand">
             Prep <span className="text-danger">Easy</span>
@@ -449,7 +469,6 @@ function ListPage() {
           style={{
             width: "800px",
             height: "70px",
-            border: "2px solid yellow",
             borderRadius: "15px",
             background: "white",
             margin: "30px",
@@ -464,13 +483,13 @@ function ListPage() {
 
         <div className="body">
           <div className="table_container">
-            <Box sx={{ width: "96%" }}>
+            <Box sx={{ width: "96%", zIndex: "1500" }}>
               <Box
                 sx={{
                   width: "100%",
                   display: "flex",
                   justifyContent: "center",
-                  marginTop: "125px",
+                  marginTop: "15px",
                 }}
               >
                 <Box sx={{ borderBottom: "1", borderColor: "divider" }}>
@@ -480,8 +499,16 @@ function ListPage() {
                     aria-label="basic tabs example"
                     style={{ width: "400px" }}
                   >
-                    <Tab label="YouTube videos" {...a11yProps(0)} />
-                    <Tab label="PDF section" {...a11yProps(1)} />
+                    <Tab
+                      style={{ backgroundColor: "white" }}
+                      label="YouTube videos"
+                      {...a11yProps(0)}
+                    />
+                    <Tab
+                      style={{ backgroundColor: "white" }}
+                      label="PDF section"
+                      {...a11yProps(1)}
+                    />
                   </Tabs>
                 </Box>
               </Box>
@@ -504,7 +531,7 @@ function ListPage() {
         </div>
       </div>
       <div style={{ justifyContent: "center" }}>
-        <footer className="site-footer">
+        <footer className="site-footer" style={{ backgroundColor: "black" }}>
           <div className="container">
             <div className="row">
               <div style={{ marginLeft: "435px" }}>
@@ -558,69 +585,3 @@ function ListPage() {
 }
 
 export default ListPage;
-
-{
-  /* <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 10 }).map((_, idx) => (
-        <Col  md={6}>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row> */
-}
-
-// ////////////////
-{
-  /* 
-                            <h2>{contnent.title}</h2>
-                            <div className="this is comment">
-                            </div>
-                        </div>
-
-                        <img src={contnent.link} alt="thumbnail" />
-
-                        <div >
-                          <p className='instructions'>{contnent.description}</p>
-                        </div>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                          <div style={{backgroundColor:"#0000002b", borderTopLeftRadius: "10px 10px", borderTopRightRadius: "10px 10px", borderBottomLeftRadius: "10px 10px", borderBottomRightRadius: "10px 10px"}}>
-                            <IconButton aria-label="up vote" onClick={handleUpVote}>
-                              <ThumbUpSharpIcon />
-                            </IconButton>
-                            <IconButton aria-label="down vote button">
-                              <ThumbDownAltSharpIcon />
-                            </IconButton>
-                          </div>
-                          <div style={{ marginLeft: 'auto', paddingRight:"12px"}}>
-                            <p style={{ fontSize: "15px", fontWeight: "500", color: "rgba(119, 119, 119, 0.7)", textAlign: "right" }}>
-                              post by: {contnent.owner}
-                            </p>
-                          </div>
-                        </Box>
-                        <p style={{ margin:"1px 0 5px 3px",fontSize: "15px", fontWeight: "500", color:"rgba(119, 119, 119, 0.7)" }}>likes:{contnent.like}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-   )
-} */
-}
-
-{
-  /* <Card.Img 
-                              style={{ height: "170px", width: "335px", objectFit: "cover", objectPosition: "center" }}
-                              variant="top"
-                              src={thumbnailData(content.link)} 
-                              alt="thumbnail" 
-                            /> */
-}
