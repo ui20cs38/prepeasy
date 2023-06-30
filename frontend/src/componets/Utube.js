@@ -170,7 +170,7 @@ const Utube = () => {
                             marginBottom: "2px",
                           }}
                           >
-                          Add Title of your content :
+                          Add Title of your content 
                         </label>
                         <input                          
                           onChange={handelTitle}
@@ -198,7 +198,7 @@ const Utube = () => {
                             marginBottom: "2px",
                           }}
                         >
-                          Description :
+                          Description 
                         </label>
                         <textarea
                           onChange={handelDiscription}
@@ -224,7 +224,7 @@ const Utube = () => {
                             fontSize:"18px",
                           }}
                         >
-                          Add Tags :
+                          Add Tags 
                         </label>
                         <input
                           id="tags"
